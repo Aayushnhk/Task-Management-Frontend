@@ -43,7 +43,7 @@ export const register = async (email: string, password: string) => {
   return data;
 };
 
-// LOGIN: Calls API, stores Access Token
+// LOGIN: Calls API, stores Access Token (FIXED to include credentials)
 export const login = async (email: string, password: string) => {
   const response = await fetch(`${API_BASE_URL}auth/login`, {
     method: 'POST',
@@ -51,6 +51,7 @@ export const login = async (email: string, password: string) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ email, password }),
+    credentials: 'include', // Must send cookie for Refresh Token
   });
 
   const data = await response.json();
@@ -66,4 +67,19 @@ export const login = async (email: string, password: string) => {
   }
 
   return data;
+};
+
+// LOGOUT: Clears local token and calls backend to clear cookie (NEW)
+export const logout = async () => {
+    // 1. Clear tokens locally (Access Token)
+    clearTokens();
+
+    // 2. Call the backend logout endpoint to clear the HTTP-Only Refresh Token cookie
+    const response = await fetch(`${API_BASE_URL}auth/logout`, {
+        method: 'POST',
+        credentials: 'include', // Needed to send the cookie back for clearing
+    });
+    
+    // We don't throw an error here, as we want the local session cleared regardless.
+    return;
 };
