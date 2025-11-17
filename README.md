@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Technologies Used
 
-## Getting Started
+•	Framework: Next.js (App Router)
 
-First, run the development server:
+•	Language: TypeScript
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+•	Styling: Tailwind CSS (for responsive design)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+•	State/UX: Custom React Hooks for data fetching and global notifications (toasts)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Setup & Installation
+1. Prerequisites
+The Backend API must be running successfully on http://localhost:3000 before starting this application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Project Clone and Dependencies
 
-## Learn More
+# Clone the repository
 
-To learn more about Next.js, take a look at the following resources:
+git clone https://github.com/Aayushnhk/Task-Management-Frontend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+cd task-management-frontend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install dependencies
 
-## Deploy on Vercel
+npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Environment Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create a file named. env.local in the root directory.
+
+    Variable	                         Description	                                       Value
+
+NEXT_PUBLIC_API_BASE_URL	    URL of the running backend API	                     http://localhost:3000/
+
+    PORT	             Frontend development server port (to avoid conflict)	                3001
+
+4. Running the Application
+
+Start the Next.js development server: npm run dev
+
+The application will be available at http://localhost:3001.
+
+Application Features
+
+This application implements the following features:
+
+•	User Flow: Responsive Login and Registration forms connecting directly to the API.
+
+•	Secure Session: Custom client-side API layer manages storing the Access Token and automatically using the Refresh Token when the Access Token expires.
+
+•	Task Dashboard: Displays the list of tasks retrieved from the backend.
+
+•	Filtering & Searching: Includes UI elements to filter tasks by status and search tasks by title.
+
+•	CRUD Forms: Implements UI and modals for Add, Edit, Delete, and Toggle task status.
+
+•	Notifications: Shows pop-up notifications (toasts) for successful operations.
+
