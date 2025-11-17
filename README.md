@@ -23,7 +23,7 @@ The Backend API must be running successfully on `http://localhost:3000` before s
 
 `npm install`
 
-3. Environment Configuration
+## **3. Environment Configuration**
 
 Create a file named `.env.local` in the root directory.
 
@@ -33,13 +33,13 @@ NEXT_PUBLIC_API_BASE_URL	    URL of the running backend API	                    
 
     PORT	             Frontend development server port (to avoid conflict)	                3001
 
-4. Running the Application
+## **4. Running the Application**
 
 Start the Next.js development server: npm run dev
 
 The application will be available at http://localhost:3001.
 
-Application Features
+# **Application Features**
 
 This application implements the following features:
 
